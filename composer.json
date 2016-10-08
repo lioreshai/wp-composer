@@ -1,0 +1,14 @@
+{
+  "require": {
+    "composer/installers": "1.*",
+    "johnpbloch/wordpress": "*"
+  },
+  "extra": {
+    "wordpress-install-dir": "public/wp",
+    "installer-paths": {
+      "public/wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+      "public/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+      "public/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+    }
+  }
+}
