@@ -1,6 +1,6 @@
 .idea/
-vendor/
-public/wp/
+/vendor/
+/public/wp/
 local-config.php
 production-config.php
-public/wp-content/uploads/
+/public/wp-content/uploads/
