@@ -17,6 +17,7 @@ The power of this package lies in the ability to create version-controlled WordP
 3. Modify the .gitignore according to which parts of _wp-content_ you'd like to include in version control. **By default the _wp-content/uploads_ directory is ignored**
 4. Copy local-config.sample.php to local-config.php and migrate your configuration values
 5. Run _composer install_
+6. **In your _wp-options_ table e sure to set your _siteurl_ option to _http://yourdomain.com/wp_ and your _home_ option to _http://yourdomain.com_**
 
 ### Recommendations
 * In his article on [using Composer to manage Git](https://deliciousbrains.com/using-composer-manage-wordpress-themes-plugins/), Gilbert Pellegrom discusses using composer to manage the installation of WordPress plugins and themes. This package doesn't proclude you from doing so, but I've found it is much easier to solely deal with plugin and theme installations in the traditional way.
