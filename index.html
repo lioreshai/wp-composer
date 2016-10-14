@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="wp-composer : Install WordPress with Composer and keep only the wp-content directory in your Git repository">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>wp-composer</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/aaisol/wp-composer">View on GitHub</a>
+
+          <h1 id="project_title">wp-composer</h1>
+          <h2 id="project_tagline">Install WordPress with Composer and keep only the wp-content directory in your Git repository</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/aaisol/wp-composer/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/aaisol/wp-composer/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="wp-composer" class="anchor" href="#wp-composer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>wp-composer</h1>
+
+<p>wp-composer allows you to convert your existing WordPress site (or new WordPress project) into a version-controlled Git repository where WordPress is installed as a Composer dependency.</p>
+
+<p>The power of this package lies in the ability to create version-controlled WordPress project where rapid, collaborative theme and plugin development is made easy. <strong>This method is not well-suited for WordPress sites which depend heavily on third-party plugins and themes which need to be updated through wp-admin.</strong></p>
+
+<h2>
+<a id="what-does-wp-composer-change-in-wordpress" class="anchor" href="#what-does-wp-composer-change-in-wordpress" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What does wp-composer change in WordPress?</h2>
+
+<ol>
+<li>Makes a better directory structure for your WordPress project which looks like this:
+
+<ul>
+<li>/public/ - The publicly-accessible root</li>
+<li>/public/wp - WordPress files installed by Composer (not included in version control)</li>
+<li>/public/wp-content - The <em>wp-content</em> directory contains all the plugins and themes unique to your WordPress project. Typically, when migrating an existing WordPress site to wp-composer, you would install using a "<strong>composer install</strong>" and copy the contents of your existing <em>wp-content</em> to this directory</li>
+<li>/ - The project root is behind the publicly accessible web root and contains any other dependencies you might want to require in the <em>vendor</em> directory.</li>
+</ul>
+</li>
+<li>Improvement in WordPress configuration. In the project root you'll find a local-config.sample.php - the modified wp-config.php located in the <em>public</em> directory will look first for a production-config.php and then fall back on a local-config.php. This will allow you to seamlessly manage your local/production configuration.</li>
+</ol>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+
+<ol>
+<li>Clone this repo into a fresh directory</li>
+<li>Copy the contents of your <em>wp-content</em> directory into <em>public/wp-content</em>
+</li>
+<li>Modify the .gitignore according to which parts of <em>wp-content</em> you'd like to include in version control. <strong>By default the <em>wp-content/uploads</em> directory is ignored</strong>
+</li>
+<li>Copy local-config.sample.php to local-config.php and migrate your configuration values</li>
+<li>Run <em>composer install</em>
+</li>
+<li><strong>In your <em>wp-options</em> table, be sure to set your <em>siteurl</em> option to <em><a href="http://yourdomain.com/wp">http://yourdomain.com/wp</a></em> and your <em>home</em> option to <em><a href="http://yourdomain.com">http://yourdomain.com</a></em></strong></li>
+</ol>
+
+<h3>
+<a id="recommendations" class="anchor" href="#recommendations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Recommendations</h3>
+
+<ul>
+<li>In his article on <a href="https://deliciousbrains.com/using-composer-manage-wordpress-themes-plugins/">using Composer to manage Git</a>, Gilbert Pellegrom discusses using composer to manage the installation of WordPress plugins and themes. This package doesn't proclude you from doing so, but I've found it is much easier to solely deal with plugin and theme installations in the traditional way.</li>
+<li>The installation of plugins and themes often alters tables in the database. If your <em>public/wp-content/plugins</em> is included in version control, take care to install the plugin on both environments (from within the WordPress admin).</li>
+</ul>
+
+<h2>
+<a id="acknowledgements" class="anchor" href="#acknowledgements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Acknowledgements</h2>
+
+<ul>
+<li>This package was created based on <a href="https://deliciousbrains.com/install-wordpress-subdirectory-composer-git-submodule/">part 4</a> of Gilbert Pellegrom's 4 part series on working with WordPress in Git and Composer.</li>
+</ul>
+
+<h4>
+<a id="liore-shai" class="anchor" href="#liore-shai" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Liore Shai</h4>
+
+<ul>
+<li><a href="mailto:liore@a.ai">liore@a.ai</a></li>
+<li><a href="https://liore.com">https://liore.com</a></li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">wp-composer maintained by <a href="https://github.com/aaisol">aaisol</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
